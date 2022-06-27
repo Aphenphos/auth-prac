@@ -4,6 +4,7 @@
 // import component creators
 import createAuthForm from './components/AuthForm.js';
 import createAuthError from './components/AuthError.js';
+import { signIn, signUp } from './services/members-service.js';
 
 let errorMessage = '';
 
@@ -20,7 +21,7 @@ async function handleSignIn(email, password) {
     // *** remove next line after verifying credentials are working
     console.log(email, password);
 
-    const response = null; // *** ? (don't forget call is asynchronous!)
+    const response = await signIn(email, password); // *** ? (don't forget call is asynchronous!)
     checkAuth(response);
 }
 
@@ -28,7 +29,7 @@ async function handleSignUp(email, password) {
     // *** remove next line after verifying credentials are working
     console.log(email, password);
 
-    const response = null; // *** ? (don't forget call is asynchronous!)
+    const response = await signUp(email, password); // *** ? (don't forget call is asynchronous!)
     checkAuth(response);
 }
 
