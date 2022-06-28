@@ -4,11 +4,16 @@
 let user = null;
 
 import createSignOut from '../components/SignOut.js';
+import { getUser, signOut } from '../services/members-service.js';
 
 // write handler functions
 async function handlePageLoad() {
     // *** get the user
+    let user = await getUser();
 
+    if (user === null) {
+        location.replace('../');
+    }
     // *** if there is a **not** user, redirect (use replace) to '../'
 
     display();
@@ -16,6 +21,7 @@ async function handlePageLoad() {
 
 async function handleSignOut() {
     // *** call sign out (don't forget call is asynchronous!)
+    signOut(user);
 }
 
 // Create each component: 
