@@ -35,11 +35,9 @@ async function handleSignUp(email, password) {
 }
 
 function checkAuth(response) {
-    // *** remove next line after verifying user is being returned
-    console.log(response.user);
+
 
     if (response?.error) {
-        console.log(response.error);
         errorMessage = response.error.message;
         // *** 
         // 1. console.log the response.error
